@@ -198,7 +198,8 @@ exports.randomplay = function(req, res, next){
         req.session.score = req.session.score || 0;
 
         models.Quiz.findAll().then(function (todos){
-            req.session.num_quizzes = req.session.quizzes.length;
+            req.session.quizzes = req.session.quizzes || quizzes;
+            var num_quizzes = req.session.quizzes.length;
             var indice;
             var quiz = 0;
 
@@ -220,7 +221,7 @@ exports.randomplay = function(req, res, next){
             });
         })
             .catch(function (error) {
-
+                next(error);
             });
 
 }
@@ -245,7 +246,7 @@ if(score == quizzes.length){
     });
 }
 else {
-    res.render('quizzes/random_result' ,{
+    res.render('quizzes/randomcheck' ,{
         quiz: req.quiz,
         result: result,
         answer: answer,
