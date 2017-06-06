@@ -212,7 +212,7 @@ exports.randomplay = function(req, res, next){
 
                 quiz=req.session.quizzes[indice];
             }
-            req.session.todos[indice]=0;
+            req.session.quizzes[indice]=0;
 
             res.render('quizzes/randomplay', {
                 quiz:quiz,
