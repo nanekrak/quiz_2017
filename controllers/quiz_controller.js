@@ -205,7 +205,7 @@ exports.randomplay = function(req, res, next){
 
             while (quiz === 0){
                 var unomenos = Math.random()*num_quizzes;
-                indice = Math.floor()*unomenos;
+                indice = Math.floor(unomenos);
                 if(indice === num_quizzes){
                     indice--;
                 }
@@ -215,7 +215,7 @@ exports.randomplay = function(req, res, next){
             req.session.quizzes[indice]=0;
 
             res.render('quizzes/randomplay', {
-                quiz:quiz,
+                quiz: quiz,
                 answer: answer,
                 score: req.session.score
             });
