@@ -5,11 +5,15 @@ var quizController = require('../controllers/quiz_controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+    req.session.quizzes = undefined;
+    req.session.score = undefined;
   res.render('index');
 });
 
 // Pagina de creditos
 router.get('/author', function(req, res, next) {
+    req.session.quizzes = undefined;
+    req.session.score = undefined;
     res.render('author');
 });
 
@@ -30,11 +34,13 @@ router.delete('/quizzes/:quizId(\\d+)',    quizController.destroy);
 router.get('/quizzes/:quizId(\\d+)/play',  quizController.play);
 router.get('/quizzes/:quizId(\\d+)/check', quizController.check);
 
-router.get('/quizzes/randomcheck/:quizId?answer=repuesta',  quizController.randomplay);
-
+router.get('/quizzes/randomcheck/:quizId(\\d+)',  quizController.randomcheck);
+router.get('/quizzes/randomplay',   quizController.randomplay);
 
 // Ayuda
 router.get('/help', function(req, res, next) {
+    req.session.quizzes = undefined;
+    req.session.score = undefined;
     res.render('help');
 });
 
