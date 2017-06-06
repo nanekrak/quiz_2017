@@ -198,7 +198,7 @@ exports.randomplay = function(req, res, next){
         req.session.score = req.session.score || 0;
 
         models.Quiz.findAll().then(function (todos){
-            req.session.quizzes = req.session.quizzes || quizzes;
+            req.session.quizzes = req.session.quizzes || todos;
             var num_quizzes = req.session.quizzes.length;
             var indice;
             var quiz = 0;
