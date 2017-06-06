@@ -240,7 +240,7 @@ else{
     var score = req.session.score;
     req.session.score = undefined;
 }
-if(score == todos.length){
+if(score === todos.length){
     res.render('quizzes/randomnomore', {
         score: score
     });
