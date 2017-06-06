@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="433d9445-bff5-4379-b83d-eba63be56cac" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/quiz_controller.js" afterPath="$PROJECT_DIR$/controllers/quiz_controller.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -70,8 +71,8 @@
       <file leaf-file-name="quiz_controller.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/controllers/quiz_controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="201" column="21" lean-forward="false" selection-start-line="201" selection-start-column="21" selection-end-line="201" selection-end-column="21" />
+            <state relative-caret-position="462">
+              <caret line="242" column="29" lean-forward="true" selection-start-line="242" selection-start-column="29" selection-end-line="242" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -114,6 +115,7 @@
       <find>Quizz</find>
       <find>Quizze</find>
       <find>Quizzes</find>
+      <find>todos</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -322,15 +324,15 @@
       <updated>1496741910235</updated>
       <workItem from="1496741911334" duration="796000" />
       <workItem from="1496742732325" duration="6000" />
-      <workItem from="1496754320071" duration="11150000" />
+      <workItem from="1496754320071" duration="11323000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14167000" />
+    <option name="totallyTimeSpent" value="14340000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="27" width="960" height="1020" extended-state="4" />
+    <frame x="960" y="27" width="960" height="1020" extended-state="5" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20940171" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -757,8 +759,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controllers/quiz_controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="201" column="21" lean-forward="false" selection-start-line="201" selection-start-column="21" selection-end-line="201" selection-end-column="21" />
+        <state relative-caret-position="462">
+          <caret line="242" column="29" lean-forward="true" selection-start-line="242" selection-start-column="29" selection-end-line="242" selection-end-column="29" />
           <folding />
         </state>
       </provider>
