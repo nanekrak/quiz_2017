@@ -43,6 +43,8 @@ exports.adminOrAuthorRequired = function(req, res, next){
 
 // GET /quizzes
 exports.index = function (req, res, next) {
+    req.session.quizzes = undefined;
+    req.session.score = undefined;
 
     var countOptions = {
         where: {}
@@ -222,3 +224,68 @@ exports.check = function (req, res, next) {
         answer: answer
     });
 };
+
+// GET randomplay
+exports.randomplay = function(req, res, next){
+
+    var answer = req.query.answer || "";
+
+        req.session.score = req.session.score || 0;
+
+        models.Quiz.findAll().then(function (quizzes){
+            req.session.quizzes = req.session.quizzes || quizzes;
+            var num_quizzes = req.session.quizzes.length;
+            var indice;
+            var quiz = 0;
+
+            while (quiz === 0){
+                var unomenos = Math.random()*num_quizzes;
+                indice = Math.floor(unomenos);
+                if(indice === num_quizzes){
+                    indice--;
+                }
+
+                quiz=req.session.quizzes[indice];
+            }
+            req.session.quizzes[indice]=0;
+
+            res.render('quizzes/randomplay', {
+                quiz: quiz,
+                answer: answer,
+                score: req.session.score
+            });
+        })
+            .catch(function (error) {
+                next(error);
+            });
+
+}
+
+//GET quizId
+
+exports.randomcheck = function (req, res, next) {
+    var answer = req.query.answer || "";
+    var result = answer.toLowerCase().trim() === req.quiz.answer.toLowerCase().trim();
+    var quizzes = req.session.quizzes;
+if(result){
+    req.session.score++;
+    var score = req.session.score;
+}
+else{
+    var score = req.session.score;
+    req.session.score = undefined;
+}
+if(score === quizzes.length){
+    res.render('quizzes/randomnomore', {
+        score: score
+    });
+}
+else {
+    res.render('quizzes/randomcheck' ,{
+        quiz: req.quiz,
+        result: result,
+        answer: answer,
+        score: req.session.score
+    });
+}
+}
