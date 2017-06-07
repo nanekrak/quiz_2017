@@ -37,12 +37,28 @@ router.get(/(?!\/new$|\/edit$|\/play$|\/check$|\/session$|\/(\d+)$)\/[^\/]*$/, f
 //-----------------------------------------------------------
 
 /* GET home page. */
+
 router.get('/', function (req, res, next) {
     res.render('index');
 });
 
 // Pagina de creditos
 router.get('/author', function (req, res, next) {
+    res.render('author');
+});
+
+
+
+router.get('/', function(req, res, next) {
+    req.session.quizzes = undefined;
+    req.session.score = undefined;
+  res.render('index');
+});
+
+// Pagina de creditos
+router.get('/author', function(req, res, next) {
+    req.session.quizzes = undefined;
+    req.session.score = undefined;
     res.render('author');
 });
 
@@ -133,9 +149,14 @@ router.delete('/quizzes/:quizId(\\d+)/tips/:tipId(\\d+)',
     tipController.destroy);
 
 
+router.get('/quizzes/randomplay',   quizController.randomplay);
+router.get('/quizzes/randomcheck/:quizId(\\d+)',  quizController.randomcheck);
+
 
 // Ayuda
 router.get('/help', function(req, res, next) {
+    req.session.quizzes = undefined;
+    req.session.score = undefined;
     res.render('help');
 });
 
